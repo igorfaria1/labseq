@@ -1,13 +1,13 @@
 package com.app.labseq.application.controller;
 
+import com.app.labseq.application.dto.SampleResponseDto;
 import com.app.labseq.domain.service.LabseqService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Tag(name = "LabseqController", description = "REST APIs related to get single value of sequence")
@@ -25,10 +25,12 @@ public class LabseqController {
         summary = "Get sequence value",
         description = "Returns the single value of sequence for a given index"
     )
-    public int getSequence(
+    public ResponseEntity<SampleResponseDto> getSequence(
         @Parameter(description = "Index of the sequence", required = true)
         @PathVariable int n
     ) {
-        return labseqService.getSingleValue(n);
+        return ResponseEntity.ok(
+            new SampleResponseDto(labseqService.getSingleValue(n))
+        );
     }
 }
