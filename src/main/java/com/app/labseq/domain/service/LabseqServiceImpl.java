@@ -1,4 +1,4 @@
-package com.test.labseq.domain.service;
+package com.app.labseq.domain.service;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;

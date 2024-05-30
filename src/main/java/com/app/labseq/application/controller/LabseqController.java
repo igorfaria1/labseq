@@ -1,6 +1,6 @@
-package com.test.labseq.application.controller;
+package com.app.labseq.application.controller;
 
-import com.test.labseq.domain.service.LabseqService;
+import com.app.labseq.domain.service.LabseqService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
